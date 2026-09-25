@@ -21,12 +21,15 @@
         .bg-indigo { background-color: #2C3E50; }
         .hover-scale { transition: transform 0.3s ease; }
         .hover-scale:hover { transform: translateY(-5px); }
+        /* Hiệu ứng mượt mà cho Modal popup */
+        .modal-enter { animation: fadeIn 0.3s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased relative">
 
     <!-- Navbar -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="bg-white shadow-sm sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex-shrink-0 font-serif text-3xl font-bold text-indigo tracking-wider">
@@ -39,7 +42,8 @@
                     <a href="#doi-ngu" class="text-gray-600 hover:text-indigo">Đội ngũ</a>
                 </div>
                 <div>
-                    <a href="#san-pham" class="bg-indigo text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-800 transition">Mua ngay</a>
+                    <!-- Đổi thành thẻ button để gọi popup -->
+                    <button data-product="Bộ Kit Bất Kỳ" class="btn-buy bg-indigo text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-800 transition">Mua ngay</button>
                 </div>
             </div>
         </div>
@@ -51,8 +55,8 @@
             <h1 class="font-serif text-4xl md:text-6xl font-bold text-indigo mb-6 leading-tight">
                 Từ Tre Việt <br> Kết nối văn hóa, trao tay trải nghiệm
             </h1>
-            <p class="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed">
-                Không chỉ là sản phẩm thủ công, KHÉO mang đến các bộ DIY Craft Kit từ mây tre Việt Nam, giúp bạn tự tay sáng tạo không gian cá nhân và góp phần chia sẻ giá trị thiết thực lại cho nghệ nhân làng nghề.
+            <p class="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed text-justify">
+                DIY Craft Kit là mô hình D2C trải nghiệm văn hóa, phát triển các bộ kit tự làm từ tre/nứa Việt Nam, kết hợp kỹ thuật thủ công truyền thống, câu chuyện làng nghề và cơ chế chia sẻ giá trị với nghệ nhân/cộng đồng. Dự án giải quyết đồng thời hai nhu cầu: khách hàng muốn trải nghiệm sáng tạo, cá nhân hóa và có ý nghĩa; làng nghề cần đầu ra mới, người trẻ tiếp nối và cách lan tỏa giá trị văn hóa.
             </p>
             <div class="flex justify-center space-x-4">
                 <a href="#san-pham" class="bg-indigo text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition shadow-lg">Khám phá MVP Kit</a>
@@ -78,7 +82,7 @@
                 </div>
                 <div class="p-6">
                     <div class="w-16 h-16 mx-auto bg-beige rounded-full flex items-center justify-center mb-6 text-2xl">🤝</div>
-                    <h3 class="text-xl font-bold mb-3">Tác động Xã hội (Impact)</h3>
+                    <h3 class="text-xl font-bold mb-3">Tác động Xã hội</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">Mô hình chia sẻ doanh thu quay lại hỗ trợ cộng đồng nghệ nhân. Hướng tới thương mại công bằng và duy trì sinh kế địa phương.</p>
                 </div>
             </div>
@@ -103,7 +107,8 @@
                         <p class="text-gray-500 text-sm mb-4">Kỹ thuật đan phẳng cơ bản nhất. Bộ kit tối ưu cho người chưa từng đan tre thao tác thành công.</p>
                         <div class="flex justify-between items-center mt-4">
                             <span class="font-bold text-lg">120.000đ</span>
-                            <button class="bg-indigo text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800">Đặt mua</button>
+                            <!-- Gắn thêm class btn-buy và data-product -->
+                            <button data-product="Lót Ly Đan Phẳng" class="btn-buy bg-indigo text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition">Đặt mua</button>
                         </div>
                     </div>
                 </div>
@@ -117,7 +122,7 @@
                         <p class="text-gray-500 text-sm mb-4">Khung tạo hình làm sẵn, khách hàng tự tay trang trí và đan phần vỏ. Thiết kế nhỏ gọn cá nhân hóa.</p>
                         <div class="flex justify-between items-center mt-4">
                             <span class="font-bold text-lg">85.000đ</span>
-                            <button class="bg-indigo text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800">Đặt mua</button>
+                            <button data-product="Móc Khóa Mây Tre" class="btn-buy bg-indigo text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition">Đặt mua</button>
                         </div>
                     </div>
                 </div>
@@ -131,7 +136,7 @@
                         <p class="text-gray-500 text-sm mb-4">Khung dựng sẵn, tích hợp đèn LED an toàn. Bán theo mùa vụ, pre-order 4-6 tuần để chuẩn bị nguyên liệu.</p>
                         <div class="flex justify-between items-center mt-4">
                             <span class="font-bold text-lg">250.000đ</span>
-                            <button class="border-2 border-indigo text-indigo px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo hover:text-white">Pre-order</button>
+                            <button data-product="Lồng Đèn Mini (Pre-order)" class="btn-buy border-2 border-indigo text-indigo px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo hover:text-white transition">Pre-order</button>
                         </div>
                     </div>
                 </div>
@@ -145,7 +150,7 @@
                         <p class="text-gray-500 text-sm mb-4">Sự kết hợp tinh tế giữa tre và giấy/vải lụa. SKU nâng cấp dành cho khách hàng đã quen thao tác.</p>
                         <div class="flex justify-between items-center mt-4">
                             <span class="font-bold text-lg">320.000đ</span>
-                            <button class="bg-indigo text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800">Đặt mua</button>
+                            <button data-product="Quạt Nan / Xòe" class="btn-buy bg-indigo text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition">Đặt mua</button>
                         </div>
                     </div>
                 </div>
@@ -201,24 +206,24 @@
         <div class="max-w-5xl mx-auto">
             <h2 class="font-serif text-3xl md:text-4xl font-bold text-indigo mb-6">Những người trẻ nối nhịp cầu văn hóa</h2>
             <p class="text-gray-600 mb-12 max-w-2xl mx-auto text-justify leading-relaxed">
-                Chúng mình là tập hợp những sinh viên Kinh tế và Chuỗi cung ứng mang trong mình niềm đam mê to bự với văn hóa Việt. KHÉO chính là sân chơi để tụi mình "F5" lại đồ thủ công truyền thống — biến những mớ lý thuyết khô khan về quản trị vận hành, logistics hay R&D thành một mô hình kinh doanh trải nghiệm đầy thú vị và đậm chất người&nbsp;trẻ.
+                Chúng mình là nhóm sinh viên mang trong mình niềm đam mê to bự với văn hóa Việt. KHÉO chính là sân chơi để tụi mình "F5" lại đồ thủ công truyền thống - biến những mớ lý thuyết khô khan về quản trị vận hành, logistics hay R&D thành một mô hình kinh doanh trải nghiệm đầy thú vị và đậm chất người trẻ.
             </p>
             
             <div class="flex flex-wrap justify-center gap-10">
                 <div class="text-center">
                     <img src="https://i.pinimg.com/736x/25/88/a9/2588a9e04ae90d022d4580d6568ff7e9.jpg" alt="Thành viên 1" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-md">
                     <h3 class="font-bold text-lg">Thành viên 1</h3>
-                    <p class="text-sm text-indigo">Phát triển Sản phẩm & R&D</p>
+                    <p class="text-sm text-indigo">Phát triển Sản phẩm</p>
                 </div>
                 <div class="text-center">
-                    <img src="https://i.pinimg.com/1200x/fd/3a/f8/fd3af889c28f340fd261729963bdefb9.jpg" alt="Trần Nguyễn Hoàng" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-md">
-                    <h3 class="font-bold text-lg">Trần Nguyễn Hoàng</h3>
-                    <p class="text-sm text-indigo">Vận hành & Chuỗi Cung Ứng</p>
+                    <img src="https://i.pinimg.com/1200x/fd/3a/f8/fd3af889c28f340fd261729963bdefb9.jpg" alt="Thành viên 2" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-md">
+                    <h3 class="font-bold text-lg">Thành viên 2</h3>
+                    <p class="text-sm text-indigo">Vận hành & Quản lý Chuỗi Cung Ứng</p>
                 </div>
                 <div class="text-center">
                     <img src="https://i.pinimg.com/736x/38/14/54/3814544f0e3ccebe1577250506e471a9.jpg" alt="Thành viên 3" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-md">
                     <h3 class="font-bold text-lg">Thành viên 3</h3>
-                    <p class="text-sm text-indigo">Marketing & Quan hệ Làng nghề</p>
+                    <p class="text-sm text-indigo">Marketing & Liên hệ Làng nghề</p>
                 </div>
             </div>
         </div>
@@ -244,6 +249,75 @@
             &copy; 2026 Dự án KHÉO Startup. Sản phẩm phục vụ mục đích tham gia cuộc thi học thuật.
         </div>
     </footer>
+
+    <!-- POPUP ĐẶT HÀNG (MODAL) -->
+    <div id="orderModal" class="fixed inset-0 z-50 hidden flex items-center justify-center px-4">
+        <!-- Lớp phủ nền đen mờ -->
+        <div id="modalOverlay" class="absolute inset-0 bg-black bg-opacity-60 transition-opacity"></div>
+        
+        <!-- Hộp Form -->
+        <div class="bg-white rounded-2xl shadow-2xl z-10 w-full max-w-lg p-8 relative modal-enter">
+            <!-- Nút Tắt (X) -->
+            <button id="closeBtn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 text-3xl leading-none">&times;</button>
+            
+            <h3 class="font-serif text-2xl font-bold text-indigo mb-1">Xác nhận đơn hàng</h3>
+            <p class="text-sm text-gray-500 mb-6">Sản phẩm đang chọn: <span id="productNameDisplay" class="font-bold text-indigo">...</span></p>
+            
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Họ và tên</label>
+                    <input type="text" placeholder="Nhập tên của bạn" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo" required>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Số điện thoại</label>
+                        <input type="tel" placeholder="09xxxx..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Số lượng Kit</label>
+                        <input type="number" value="1" min="1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo" required>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Địa chỉ giao hàng</label>
+                    <input type="text" placeholder="Nhập địa chỉ nhận hàng" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo" required>
+                </div>
+                <button type="button" onclick="alert('Đây là giao diện trải nghiệm. Cảm ơn ban giám khảo đã ủng hộ KHÉO!'); document.getElementById('orderModal').classList.add('hidden');" class="w-full bg-indigo text-white font-bold py-3 rounded-lg hover:bg-gray-800 transition shadow-lg mt-4">
+                    Gửi Thông Tin
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT CHO POPUP -->
+    <script>
+        const modal = document.getElementById('orderModal');
+        const overlay = document.getElementById('modalOverlay');
+        const closeBtn = document.getElementById('closeBtn');
+        const productNameDisplay = document.getElementById('productNameDisplay');
+        const buyButtons = document.querySelectorAll('.btn-buy');
+
+        // Khi bấm vào bất kỳ nút Mua/Pre-order nào
+        buyButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Lấy tên sản phẩm từ thuộc tính data-product
+                const productName = e.target.getAttribute('data-product');
+                productNameDisplay.innerText = productName;
+                
+                // Hiện Modal
+                modal.classList.remove('hidden');
+            });
+        });
+
+        // Hàm tắt Modal
+        const closeModal = () => {
+            modal.classList.add('hidden');
+        };
+
+        // Bấm nút X hoặc bấm ra ngoài nền đen để tắt Modal
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+    </script>
 
 </body>
 </html>
