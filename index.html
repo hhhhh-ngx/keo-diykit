@@ -7,15 +7,11 @@
     <!-- Sử dụng Tailwind CSS qua CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Dùng Be Vietnam Pro cho phần nội dung để tối ưu tốc độ và chống lỗi -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
     <style>
-        body { font-family: 'Be Vietnam Pro', sans-serif; background-color: #FAFAFA; color: #333; }
-        /* Dùng font Serif hệ thống mặc định (Georgia/Times) để 100% không bao giờ lỗi dấu tiếng Việt */
-        .font-serif { font-family: Georgia, 'Times New Roman', Times, serif; }
+        /* Ép dùng font hệ thống nguyên bản, bất tử với lỗi dấu */
+        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background-color: #FAFAFA; color: #333; }
+        .font-serif { font-family: Cambria, Georgia, 'Times New Roman', serif; }
+        
         .bg-beige { background-color: #F4F1EA; }
         .text-indigo { color: #2C3E50; }
         .bg-indigo { background-color: #2C3E50; }
@@ -42,7 +38,6 @@
                     <a href="#doi-ngu" class="text-gray-600 hover:text-indigo">Đội ngũ</a>
                 </div>
                 <div>
-                    <!-- Đổi thành thẻ button để gọi popup -->
                     <button data-product="Bộ Kit Bất Kỳ" class="btn-buy bg-indigo text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-800 transition">Mua ngay</button>
                 </div>
             </div>
@@ -107,7 +102,6 @@
                         <p class="text-gray-500 text-sm mb-4">Kỹ thuật đan phẳng cơ bản nhất. Bộ kit tối ưu cho người chưa từng đan tre thao tác thành công.</p>
                         <div class="flex justify-between items-center mt-4">
                             <span class="font-bold text-lg">120.000đ</span>
-                            <!-- Gắn thêm class btn-buy và data-product -->
                             <button data-product="Lót Ly Đan Phẳng" class="btn-buy bg-indigo text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition">Đặt mua</button>
                         </div>
                     </div>
